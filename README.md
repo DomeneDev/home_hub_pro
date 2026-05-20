@@ -5,6 +5,7 @@ Home Operations Hub es un software de gestión integral diseñado para centraliz
 Este proyecto nace con el objetivo de resolver el caos de la gestión doméstica mediante un trasfondo de datos interconectados muy potente, preparado para escalar desde una arquitectura sólida en el backend hasta una interfaz gráfica avanzada e intuitiva.
 
 🛠️ Módulos Principales (Ecosistema)
+
 🛒 Gestión de Despensa e Inventario: Control de stock en tiempo real mediante SKUs/Identificadores únicos, alertas automatizadas de reposición por stock mínimo y control predictivo de fechas de caducidad.
 
 💰 Finanzas del Hogar: Registro de ingresos y gastos, balances mensuales, presupuestos asignados por categorías y análisis de costes recurrentes (suscripciones, facturas).
