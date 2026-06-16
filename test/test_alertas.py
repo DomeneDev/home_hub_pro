@@ -56,8 +56,25 @@ despensa_ficticia_pruebas_stock = {
 
 
 def test_verificar_stock_bajo():
-    pass
+    """Valida que se identifiquen correctamente los productos con existencias insuficientes.
+
+    A partir de un diccionario de pruebas con datos simulados de inventario,
+    se verifica que la función devuelva de manera precisa aquellos artículos
+    cuya cantidad actual se encuentra por debajo del umbral mínimo configurado.
+    """
+    resultado = verificar_stock_bajo(despensa_ficticia_pruebas_stock)
+    assert "ACEITE-001" in resultado
 
 
 def test_verificar_caducidades():
-    pass
+    """Valida la correcta clasificación cronológica de los productos según su fecha de vencimiento.
+
+    A partir de una fecha de referencia fija y un inventario simulado de pruebas,
+    se verifica que la función organice correctamente los productos en sus
+    respectivas categorías de alerta, asegurando que se detecten tanto los artículos
+    que vencen el mismo día como los que ya han caducado.
+    """
+    resultado = verificar_caducidades(
+        "2026-05-26", despensa_ficticia_pruebas_caducidad)
+    assert "YOGUR-001" in resultado["caduca_hoy"]
+    assert "LECHE-001" in resultado["ya_caducado"]

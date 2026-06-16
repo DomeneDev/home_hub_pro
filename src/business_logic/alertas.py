@@ -37,7 +37,7 @@ def verificar_stock_bajo(despensa_a_inspeccionar: dict = None) -> dict:
         despensa_a_inspeccionar = despensa
     for producto in despensa_a_inspeccionar:
         if despensa_a_inspeccionar[producto]["cantidad_actual"] < despensa_a_inspeccionar[producto]["cantidad_minima"]:
-            productos_en_alerta[producto] = despensa_a_inspeccionar[producto]["cantidad actual"]
+            productos_en_alerta[producto] = despensa_a_inspeccionar[producto]["cantidad_actual"]
     return productos_en_alerta
 
 
@@ -80,7 +80,8 @@ def verificar_caducidades(fecha_hoy: datetime, despensa_a_inspeccionar: dict = N
         else:
             fecha_caducidad_producto = datetime.strptime(
                 despensa_a_inspeccionar[producto]["fecha_caducidad"], "%Y-%m-%d")
-            diferencia = fecha_caducidad_producto - fecha_hoy
+            diferencia = fecha_caducidad_producto - \
+                datetime.strptime(fecha_hoy, "%Y-%m-%d")
             if diferencia.days == 0:
                 alertas_caducidad["caduca_hoy"].append(producto)
             elif diferencia.days < 0:
