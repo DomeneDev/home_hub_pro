@@ -9,8 +9,8 @@ Funciones incluidas:
     * verificar_stock_bajo: Identifica productos con existencias críticas.
     * verifcar_caducidades: Detecta artículos vencidos o próximos a caducar.
 """
-from src.core.inventario import despensa
 from datetime import datetime
+from src.core.inventario import despensa
 
 
 def verificar_stock_bajo(despensa_a_inspeccionar: dict = None) -> dict:
