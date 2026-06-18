@@ -41,8 +41,13 @@ def main():
     `match-case` para ejecutar los subprocesos correspondientes de inventario o
     finalizar el programa.
     """
-    verificar_conexion()
-    while True:
+    if verificar_conexion():
+        print("Status: Conectado a la red exitosamente.\n")
+    else:
+        print("Status: Modo offline de manera local.\n")
+
+    ejecutando = True
+    while ejecutando:
         menu()
         while True:
             try:
@@ -82,7 +87,7 @@ def main():
                 print("\n\n")
             case 4:
                 print("Saliendo de HomeHubPro....")
-                break
+                ejecutando = False
             case _:
                 print("¡¡¡Error: opción no valida")
 
