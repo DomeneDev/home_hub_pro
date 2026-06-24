@@ -30,8 +30,10 @@ def guardar_inventario(inventario: dict, ruta_archivo: str) -> bool:
     try:
         with open(ruta_archivo, 'w', encoding='utf-8') as f:
             json.dump(inventario, f, indent=4)
+            return True
     except OSError:
         print("Error al guardar inventario..")
+        return False
 
 
 def cargar_inventario(ruta_archivo: str) -> dict:
@@ -57,8 +59,10 @@ def cargar_inventario(ruta_archivo: str) -> dict:
     except FileNotFoundError:
         productos = {}
         print("No existe despensa en la ruta especificada, se crea una despensa nueva...")
+        return False
     except json.JSONDecodeError:
         productos = {}
         print(
             "El archivo de despensa está corrupto, no se puede cargar, se crea una depensa nueva..."
         )
+        return False
