@@ -53,16 +53,15 @@ def cargar_inventario(ruta_archivo: str) -> dict:
     """
     try:
         with open(ruta_archivo, 'r', encoding='utf-8')as f:
-            productos = json.load(f)
             print("Despensa cargada existosamente...")
-            return productos
+            return json.load(f)
     except FileNotFoundError:
         productos = {}
         print("No existe despensa en la ruta especificada, se crea una despensa nueva...")
-        return False
+        return productos
     except json.JSONDecodeError:
         productos = {}
         print(
             "El archivo de despensa está corrupto, no se puede cargar, se crea una depensa nueva..."
         )
-        return False
+        return productos
